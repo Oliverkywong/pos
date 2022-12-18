@@ -1,0 +1,10 @@
+{
+  "name": "pos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@nestjs/cli": "^9.1.5",
+    "create-react-app": "^5.0.1"
+  }
+}
