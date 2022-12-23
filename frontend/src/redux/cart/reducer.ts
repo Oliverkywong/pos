@@ -4,7 +4,7 @@ import { CartState } from "./state";
 
 const initialState: CartState = {
     foodIds: [],
-    loading: LoadingState.NotLoaded
+    loading: LoadingState.NotLoaded,
 }
 
 export function cartReducer(state: CartState = initialState, action: CartAction): CartState {
@@ -18,16 +18,20 @@ export function cartReducer(state: CartState = initialState, action: CartAction)
         case '@@cart/ADD_TO_CART':
             return {
                 ...state,
-                foodIds: [...state.foodIds, action.payload]
+                foodIds: [...state.foodIds, action.payload],
             }
         case '@@cart/REMOVE_FROM_CART':
             {
                 const foodIdx = state.foodIds.indexOf(action.payload)
-                const foodIds = state.foodIds.splice(foodIdx, 1)
+                state.foodIds.splice(foodIdx, 1)
+                const newArray = []
+                for (let i = 0; i < state.foodIds.length; i++) {
+                    newArray.push(state.foodIds[i])
+                }
                 return {
                     ...state,
-                    foodIds: foodIds
-                }  
+                    foodIds: newArray
+                }
             }
         default:
             return state;

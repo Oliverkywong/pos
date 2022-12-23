@@ -15,7 +15,7 @@ export class MenuService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} menu`;
+    return this.prisma.menu.findUnique({ where: { id: id } });
   }
 
   update(id: number, updateMenuDto: UpdateMenuDto) {

@@ -4,7 +4,7 @@ import { GrAddCircle } from 'react-icons/gr'
 import { AiOutlineMinusCircle } from 'react-icons/ai'
 import { loadFoods } from './redux/order/action';
 import { useAppDispatch, useAppSelector } from './store';
-import { addToCart } from './redux/cart/action';
+import { addToCart, removeFromCart } from './redux/cart/action';
 
 export default function Selectbox() {
     const foodsLoaded = useAppSelector(state => state.order.loadingState)
@@ -21,10 +21,10 @@ export default function Selectbox() {
                     <img src={logo} alt="logo" />
                     <p>{food.foodname}</p><p>${food.price}</p>
                     <div className='amount'>
-                        <button onClick={() => { dispatch(addToCart(food.id)) }}>
+                        {/* <button onClick={() => { dispatch(removeFromCart(food.id)) }}>
                             <AiOutlineMinusCircle />
                         </button>
-                        <input type="text" value='0' name='amount' placeholder='0' />
+                        <input type="text" value='0' name='amount' placeholder='0' /> */}
                         <button onClick={() => { dispatch(addToCart(food.id)) }}>
                             <GrAddCircle />
                         </button>
