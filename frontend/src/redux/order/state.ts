@@ -2,7 +2,7 @@ import { LoadingState } from "../../model";
 
 export interface Food{
     id: number;
-    foodName: string;
+    foodname: string;
     price: string;
 }
 

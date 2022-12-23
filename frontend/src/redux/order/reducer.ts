@@ -22,7 +22,8 @@ export function orderReducer(state: OrderState = initialState, action: FoodActio
         case '@@food/LOADED_FOODS':
             return {
                 ...state,
-                foods: action.payload
+                foods: action.payload,
+                loadingState: LoadingState.Loaded
             }
         default:
             return state;

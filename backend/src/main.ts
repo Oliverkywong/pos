@@ -10,7 +10,7 @@ async function bootstrap() {
       origin: ['http://localhost:3001'],
     }
   );
-  app.use(csurf());
+  // app.use(csurf());
   app.use(helmet());
   await app.listen(3000);
 }
