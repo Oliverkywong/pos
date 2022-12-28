@@ -21,9 +21,9 @@ type LoadedOneFoodAction = ReturnType<typeof LoadedOneFood>
 
 export type FoodAction = LoadedFoodAction | LoadedOneFoodAction
 
-export function loadFoods() {
+export function loadFoods(parm:string='') {
     return async (dispatch: AppDispatch) => {
-        const res = await axios.get(`/menu`)
+        const res = await axios.get(`/menu${parm}`)
         console.log(res)
         dispatch(LoadedFoods(res.data))
     }

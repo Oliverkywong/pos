@@ -1,22 +1,33 @@
 import { PrismaClient } from '@prisma/client';
+import { hashPassword } from "../util/hash"
 
 // initialize Prisma Client
 const prisma = new PrismaClient();
 
 async function main() {
   await prisma.menu.deleteMany({})
-  const types =  ['soup', 'food', 'salad', 'drink']
+  const types = ['soup', 'food', 'salad', 'drink']
   for (let i = 0; i < 20; i++) {
     await prisma.menu.create({
       data: {
         foodname: i.toString(),
         description: i.toString(),
-        price: Math.floor(Math.random()*50)+1,
+        price: Math.floor(Math.random() * 50) + 1,
         soldout: false,
-        type: types[ Math.floor(Math.random()*3)]
+        type: types[Math.floor(Math.random() * 4)]
       },
     });
   }
+
+  const a = await hashPassword('admin')
+  await prisma.admin.deleteMany({})
+  await prisma.admin.create({
+    data: {
+      name: 'admin',
+      password: a,
+      role: 'boss'
+    },
+  });
 }
 
 // execute the main function

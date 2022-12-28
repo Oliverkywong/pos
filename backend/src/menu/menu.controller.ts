@@ -17,6 +17,26 @@ export class MenuController {
     return this.menuService.findAll();
   }
 
+  @Get('soup')
+  findSoup() {
+    return this.menuService.findSoup();
+  }
+
+  @Get('salad')
+  findSalad() {
+    return this.menuService.findSalad();
+  }
+
+  @Get('food')
+  findFood() {
+    return this.menuService.findFood();
+  }
+  
+  @Get('drink')
+  findDrink() {
+    return this.menuService.findDrink();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.menuService.findOne(+id);

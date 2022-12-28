@@ -14,6 +14,22 @@ export class MenuService {
     return this.prisma.menu.findMany({ where: { soldout: false } });
   }
 
+  findSoup() {
+    return this.prisma.menu.findMany({ where: { AND:[ {soldout: false}, {type: 'soup'} ] } });
+  }
+
+  findFood() {
+    return this.prisma.menu.findMany({ where: { AND:[ {soldout: false}, {type: 'food'} ] } });
+  }
+
+  findSalad() {
+   return this.prisma.menu.findMany({ where: { AND:[ {soldout: false}, {type: 'salad'} ] } });
+  }
+
+  findDrink() {
+   return this.prisma.menu.findMany({ where: { AND:[ {soldout: false}, {type: 'drink'} ] } });
+  }
+
   findOne(id: number) {
     return this.prisma.menu.findUnique({ where: { id: id } });
   }

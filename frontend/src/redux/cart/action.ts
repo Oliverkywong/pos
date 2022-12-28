@@ -31,7 +31,11 @@ export type CartAction = LoadedCartAction | AddToCartAction | RemoveFromCartActi
 export function loadCart() {
     return async (dispatch: AppDispatch) => {
         const res = await axios.get(`/cart`)
-        dispatch(loadedCart(res.data.map((row: any) => { row.id })))
+        try {
+            dispatch(loadedCart(res.data.map((row: any) => { return row.id })))
+        } catch (error) {
+            dispatch(loadCart())
+        }
     }
 }
 
@@ -39,9 +43,9 @@ export function fetchAddToCart(id: number) {
     return async (dispatch: AppDispatch) => {
         addToCart(id)
         try {
-            const res = await axios.post(`/cart`, {
-                id: id
-            })
+            // const res = await axios.post(`/cart`, {
+            //     id: id
+            // })
         } catch (error) {
             dispatch(removeFromCart(id))
             dispatch(loadCart())

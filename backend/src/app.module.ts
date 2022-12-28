@@ -5,13 +5,15 @@ import { PrismaModule } from './prisma/prisma.module';
 import { MenuModule } from './menu/menu.module';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
+import { AdminModule } from './admin/admin.module';
 
 @Module({
-  imports: [PrismaModule, MenuModule,
+  imports: [PrismaModule, MenuModule,AdminModule,
     ThrottlerModule.forRoot({
       ttl: 60,
       limit: 10,
     }),
+    AdminModule,
   ],
   controllers: [AppController],
   providers: [AppService,{

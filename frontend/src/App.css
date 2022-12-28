@@ -9,12 +9,7 @@
 
 .siderbar{
   background-color: #282c34;
-  min-height: 100%;
   max-width: 6rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
   position: relative;
@@ -89,13 +84,19 @@
 .cartpage{
   position: absolute;
   z-index: 999;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: black;
   width: 100%;
   height: 100%;
   background-color: white;
+}
+
+.selectboxmain {
+  display: flex;
+  flex-direction: row;
+}
+
+.cart{
+  font-size: calc(10px + 2vmin);
+  color: white;
 }

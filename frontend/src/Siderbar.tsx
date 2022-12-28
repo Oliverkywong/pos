@@ -6,7 +6,11 @@ export default function Siderbar() {
         <div className='siderbar'>
             <div>
                 <img src={logo} alt="logo" />
-                <p>starters</p>
+                <p>all</p>
+            </div>
+            <div>
+                <img src={logo} alt="logo" />
+                <p>soup</p>
             </div>
             <div>
                 <img src={logo} alt="logo" />
@@ -14,11 +18,7 @@ export default function Siderbar() {
             </div>
             <div>
                 <img src={logo} alt="logo" />
-                <p>main</p>
-            </div>
-            <div>
-                <img src={logo} alt="logo" />
-                <p>desserts</p>
+                <p>food</p>
             </div>
             <div>
                 <img src={logo} alt="logo" />

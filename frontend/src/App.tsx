@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Siderbar from './Siderbar';
 import Header from './Header';
 import Selectbox from './Selectbox';
 import { Switch, Route } from 'react-router-dom';
@@ -16,10 +15,7 @@ function App() {
         <Route path='/cart' component={Cart} />
       </Switch>
       <Header />
-      <div className='main'>
-        <Siderbar />
-        <Selectbox />
-      </div>
+      <Selectbox />
     </div>
   );
 }
