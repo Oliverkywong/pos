@@ -6,12 +6,13 @@ import { checkPassword } from '../../util/hash'
 export class AdminService {
     constructor(private prisma: PrismaService) { }
 
-    login(username: string, password: string) {
-        return this.prisma.admin.findMany({ where: { name: username }});
+    async login(body: { username: string, password: string }) {
+        const user = await this.prisma.admin.findFirst({ where: { name: body.username } });
+
+        if (await checkPassword(body.password, user.password)) {
+            return user
+        } else {
+            return false;
+        }
     }
-
-  findOne(id: number) {
-    return this.prisma.admin.findUnique({ where: { id: id } });
-  }
-
 }

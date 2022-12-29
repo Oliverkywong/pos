@@ -6,6 +6,7 @@ import { MenuModule } from './menu/menu.module';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
 import { AdminModule } from './admin/admin.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [PrismaModule, MenuModule,AdminModule,
@@ -14,6 +15,7 @@ import { AdminModule } from './admin/admin.module';
       limit: 10,
     }),
     AdminModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService,{
