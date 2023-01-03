@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import Header from './Header';
-import Selectbox from './Selectbox';
 import { Switch, Route } from 'react-router-dom';
-import Cart from './Cart';
+import Cart from './component/Cart';
+import Header from './component/Header';
+import Menu from './component/Menu';
 
 function App() {
+  const [animate, setAnimate] = useState(false);
+
   return (
     <div className="App">
       <Switch>
@@ -14,8 +16,9 @@ function App() {
         <Route path='/fooddetail/:id' exact />
         <Route path='/cart' component={Cart} />
       </Switch>
-      <Header />
-      <Selectbox />
+        <Header animate={animate}/>
+        <Menu state={{animate:animate,setAnimate:setAnimate}}/>
+       
     </div>
   );
 }

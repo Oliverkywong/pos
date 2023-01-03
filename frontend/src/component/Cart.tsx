@@ -1,8 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { removeFromCart } from './redux/cart/action';
-import { useAppSelector, useAppDispatch } from './store';
-import logo from './logo.svg';
+import { removeFromCart } from '../redux/cart/action';
+import { useAppSelector, useAppDispatch } from '../store';
+import logo from '../logo.svg';
 
 export default function Cart() {
 

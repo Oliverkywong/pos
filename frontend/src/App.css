@@ -12,13 +12,11 @@
   max-width: 6rem;
   font-size: calc(10px + 2vmin);
   color: white;
-  position: relative;
-  z-index: 9;
 }
 
 .siderbar > div  > img {
-  height: 40px;
-  width: 40px;
+  height: calc(40px + 2vmin);
+  width: calc(40px + 2vmin);
 }
 
 .siderbar > div  > p {
@@ -35,13 +33,16 @@
   justify-content: space-between;
   font-size: calc(10px + 2vmin);
   color: white;
-  position: relative;
-  z-index: 99;
 }
 
 .logo{
-  height: 40px;
-  width: 40px;
+  height: calc(80px + 2vmin);
+  width: calc(80px + 2vmin);
+}
+
+.selectboxmain {
+  display: flex;
+  flex-direction: row;
 }
 
 .boxcontainer{
@@ -67,20 +68,6 @@
   width: 40%;
 }
 
-.main{
-  display: flex;
-  flex-direction: row;
-}
-
-.amount{
-  display: flex;
-  flex-direction: row;
-}
-
-.amount > input{
-  max-width: 10px;
-}
-
 .cartpage{
   position: absolute;
   z-index: 999;
@@ -91,12 +78,48 @@
   background-color: white;
 }
 
-.selectboxmain {
-  display: flex;
-  flex-direction: row;
+.cart{
+  font-size: calc(20px + 2vmin);
+  color: white;
+  position: relative;
+  transform-origin: top;
+  animation: anim 1s forwards;
 }
 
-.cart{
-  font-size: calc(10px + 2vmin);
+[data-content]:before {
+  content: attr(data-content);
+  position: absolute;
+  top: calc(-5px);;
+  left: calc(20px);
+  width: calc(10px + 2vmin);
+  height: calc(10px + 2vmin);
+  background-color: #7EFFB2;
+  font-size: calc(7px + 2vmin);
+  color: #090909;
+  display: grid;
+  place-items: center;
+  border: 2px solid #090909;
+  border-radius: 50%;
+}
+
+.tt {
+  font-size: calc(20px + 2vmin);
   color: white;
+  position: relative;
+  transform-origin: top;
+  animation: am 1s forwards;
+}
+
+@keyframes anim {
+  10% {transform: rotate(15deg);}
+  20% {transform: rotate(-15deg);}
+  30% {transform: rotate(15deg);}
+  50% {transform: rotate(0deg);}
+}
+
+@keyframes am {
+  10% {transform: rotate(15deg);}
+  20% {transform: rotate(-15deg);}
+  30% {transform: rotate(15deg);}
+  50% {transform: rotate(0deg);}
 }

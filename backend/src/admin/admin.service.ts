@@ -8,7 +8,7 @@ export class AdminService {
     constructor(private prisma: PrismaService) { }
     create(createAdminDto: CreateAdminDto) {
       return 'This action adds a new Admin';
-    }
+    }   
 
     async login(body: { username: string, password: string }) {
         const user = await this.prisma.admin.findFirst({ where: { name: body.username } });
