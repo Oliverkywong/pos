@@ -26,13 +26,15 @@ export default function Cart() {
       </div>
       {Object.keys(count).map(cartid => foods.find(food => food.id.toString() === cartid.toString())).map(food => (
         !food ? <p>no foods</p> :
-          <div className='box' key={food.id}>
-            <img src={logo} alt="logo" />
-            <p>{food.foodname}</p><p>${food.price}</p>
-            <button onClick={() => { dispatch(removeFromCart(food.id)) }}>
-              delete
-            </button>
-            x {count[food.id]}
+          <div className='cartshow'>
+            <div className='cartbox' key={food.id}>
+              <img src={logo} alt="logo" />
+              <p>{food.foodname}</p><p>${food.price}</p>
+              <button onClick={() => { dispatch(removeFromCart(food.id)) }}>
+                delete
+              </button>
+            </div>
+            <p>x {count[food.id]}</p>
           </div>
       ))}
     </div>

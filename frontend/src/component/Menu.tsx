@@ -4,6 +4,7 @@ import { addToCart } from '../redux/cart/action';
 import { useAppSelector, useAppDispatch } from '../store';
 import logo from '../logo.svg';
 import Siderbar from './Siderbar';
+import { NavLink } from 'react-router-dom';
 
 export default function Menu(props: {
     state: {
@@ -19,7 +20,7 @@ export default function Menu(props: {
             <Siderbar />
             <div className='boxcontainer'>
                 {foods.map(food => (
-                    <div className='box' key={food.id}>
+                    <NavLink to={`/fooddetail/${food.id}`} className='box' key={food.id}>
                         <img src={logo} alt="logo" />
                         <p>{food.foodname}</p>
                         <p>${food.price}</p>
@@ -29,7 +30,8 @@ export default function Menu(props: {
                         }}>
                             <GrAddCircle />
                         </button>
-                    </div>))}
+                    </NavLink>
+                ))}
             </div>
         </div>
     )

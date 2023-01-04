@@ -29,9 +29,10 @@ export function loadFoods(parm:string='') {
     }
 }
 
-export function loadOneFood(id: number) {
+export function loadOneFood(id: string) {
     return async (dispatch: AppDispatch) => {
         const res = await axios.get(`/menu/${id}`)
+        console.log(res)
         dispatch(LoadedOneFood(res.data))
     }
 }
