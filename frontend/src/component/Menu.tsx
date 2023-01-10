@@ -24,9 +24,10 @@ export default function Menu(props: {
                         <img src={logo} alt="logo" />
                         <p>{food.foodname}</p>
                         <p>${food.price}</p>
-                        <button onClick={() => {
+                        <button onClick={(e) => {
                             dispatch(addToCart(food.id));
                             props.state.setAnimate(!props.state.animate)
+                            e.preventDefault();
                         }}>
                             <GrAddCircle />
                         </button>
