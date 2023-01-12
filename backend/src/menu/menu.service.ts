@@ -5,9 +5,9 @@ import { UpdateMenuDto } from './dto/update-menu.dto';
 
 @Injectable()
 export class MenuService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) { }
   create(createMenuDto: CreateMenuDto) {
-    return 'This action adds a new menu';
+    return this.prisma.menu.create({ data: createMenuDto });
   }
 
   findAll() {
@@ -15,19 +15,35 @@ export class MenuService {
   }
 
   findSoup() {
-    return this.prisma.menu.findMany({ where: { AND:[ {soldout: false}, {type: 'soup'} ] } });
+    return this.prisma.menu.findMany({
+      where: {
+        AND: [{ soldout: false }, { type: 'soup' }]
+      }
+    });
   }
 
   findFood() {
-    return this.prisma.menu.findMany({ where: { AND:[ {soldout: false}, {type: 'food'} ] } });
+    return this.prisma.menu.findMany({
+      where: {
+        AND: [{ soldout: false }, { type: 'food' }]
+      }
+    });
   }
 
   findSalad() {
-   return this.prisma.menu.findMany({ where: { AND:[ {soldout: false}, {type: 'salad'} ] } });
+    return this.prisma.menu.findMany({
+      where: {
+        AND: [{ soldout: false }, { type: 'salad' }]
+      }
+    });
   }
 
   findDrink() {
-   return this.prisma.menu.findMany({ where: { AND:[ {soldout: false}, {type: 'drink'} ] } });
+    return this.prisma.menu.findMany({
+      where: {
+        AND: [{ soldout: false }, { type: 'drink' }]
+      }
+    });
   }
 
   findOne(id: number) {
@@ -35,10 +51,13 @@ export class MenuService {
   }
 
   update(id: number, updateMenuDto: UpdateMenuDto) {
-    return `This action updates a #${id} menu`;
+    return this.prisma.menu.update({
+      where: { id },
+      data: updateMenuDto,
+    });
   }
 
   remove(id: number) {
-    return `This action removes a #${id} menu`;
+    return this.prisma.menu.delete({ where: { id } });
   }
 }
