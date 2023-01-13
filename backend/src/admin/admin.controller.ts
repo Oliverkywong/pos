@@ -10,7 +10,7 @@ export class AdminController {
 
     @Post()
     login(@Body() body) {
-        const login = this.adminService.login(body)
+        const login = this.adminService.login(JSON.parse(body.body))
         if (!login) {
             return { result: false, msg: "login failed" }
         }

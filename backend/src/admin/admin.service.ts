@@ -11,6 +11,8 @@ export class AdminService {
     }   
 
     async login(body: { username: string, password: string }) {
+        console.log(body)
+        console.log(body.username, body.password)
         const user = await this.prisma.admin.findFirst({ where: { name: body.username } });
 
         if (await checkPassword(body.password, user.password)) {

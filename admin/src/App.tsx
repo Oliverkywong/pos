@@ -7,16 +7,18 @@ function App() {
   const [usn, setUsn] = useState('')
   const [pwd, setPwd] = useState('')
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
-    const response = await axios.post(`/login`,
-      JSON.stringify({ usn, pwd }),
-      {
-        headers: { 'Content-Type': 'application/json' },
-        withCredentials: true
-      }
-    );
-    console.log(JSON.stringify(response?.data));
+    const res = await await axios.post(`/admin`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ 'username':usn, 'password':pwd }),
+    });
+    if (res.status === 200) {
+
+    }
   }
 
   return (
