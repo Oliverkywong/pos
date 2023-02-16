@@ -2,7 +2,6 @@ import React, { Dispatch, SetStateAction } from 'react'
 import { GrAddCircle } from 'react-icons/gr';
 import { addToCart } from '../redux/cart/action';
 import { useAppSelector, useAppDispatch } from '../store';
-import logo from '../logo.svg';
 import Siderbar from './Siderbar';
 import { NavLink } from 'react-router-dom';
 
@@ -21,7 +20,7 @@ export default function Menu(props: {
             <div className='boxcontainer'>
                 {foods.map(food => (
                     <NavLink to={`/fooddetail/${food.id}`} className='box' key={food.id}>
-                        <img src={logo} alt="logo" />
+                        <img className='foodpic' src={require(`../../img/${food.foodpic}`)} alt="foodpic" />
                         <p>{food.foodname}</p>
                         <p>${food.price}</p>
                         <button onClick={(e) => {

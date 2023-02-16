@@ -12,6 +12,7 @@ async function main() {
       data: {
         foodname: i.toString(),
         description: i.toString(),
+        foodpic: `download${Math.floor(Math.random() * 6)}.jpeg`,
         price: Math.floor(Math.random() * 50) + 1,
         soldout: false,
         type: types[Math.floor(Math.random() * 4)]

@@ -1,33 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import axios from "axios";
+import { Route, Routes } from 'react-router-dom';
+import Editpage from './Editpage';
+import Login from './Login';
 
 function App() {
-
-  const [usn, setUsn] = useState('')
-  const [pwd, setPwd] = useState('')
-
-  const handleSubmit = async (e:any) => {
-    e.preventDefault();
-    const res = await await axios.post(`/admin`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ 'username':usn, 'password':pwd }),
-    });
-    if (res.status === 200) {
-
-    }
-  }
-
   return (
-    <div className="App">
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={usn} onChange={e => setUsn(e.currentTarget.value)}></input>
-        <input type="password" value={pwd} onChange={e => setPwd(e.currentTarget.value)}></input>
-        <input type="submit" />
-      </form>
+    <div>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="edit" element={<Editpage />} />
+      </Routes>
     </div>
   );
 }

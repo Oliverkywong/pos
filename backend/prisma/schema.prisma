@@ -17,6 +17,7 @@ model Menu {
     price       Int
     soldout     Boolean
     type        String
+    foodpic     String
     createdAt   DateTime @default(now())
     updatedAt   DateTime @updatedAt
 }

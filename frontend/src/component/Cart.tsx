@@ -2,7 +2,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { removeFromCart } from '../redux/cart/action';
 import { useAppSelector, useAppDispatch } from '../store';
-import logo from '../logo.svg';
 
 export default function Cart() {
 
@@ -28,7 +27,7 @@ export default function Cart() {
         !food ? <p>no foods</p> :
           <div className='cartshow'>
             <div className='cartbox' key={food.id}>
-              <img src={logo} alt="logo" />
+              <img className='foodpic' src={require(`../../img/${food.foodpic}`)} alt="foodpic" />
               <p>{food.foodname}</p><p>${food.price}</p>
               <button onClick={() => { dispatch(removeFromCart(food.id)) }}>
                 delete
