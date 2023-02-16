@@ -7,6 +7,7 @@ import { UpdateMenuDto } from './dto/update-menu.dto';
 export class MenuService {
   constructor(private prisma: PrismaService) { }
   create(createMenuDto: CreateMenuDto) {
+    createMenuDto["soldout"] = false
     return this.prisma.menu.create({ data: createMenuDto });
   }
 

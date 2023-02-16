@@ -10,14 +10,14 @@ export default function Login() {
   
     const handleSubmit = async (e:any) => {
       e.preventDefault();
-      const res = await axios.post(`/login`, {
+      const res = await axios.post(`/admin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ 'username':usn, 'password':pwd }),
       });
-      if (res.status === 200) {
+      if (res.status === 201) {
         navigate('/edit')
       }
     }
