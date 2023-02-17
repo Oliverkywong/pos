@@ -20,7 +20,8 @@ export default function Menu(props: {
             <div className='boxcontainer'>
                 {foods.map(food => (
                     <NavLink to={`/fooddetail/${food.id}`} className='box' key={food.id}>
-                        <img className='foodpic' src={require(`../../img/${food.foodpic}`)} alt="foodpic" />
+                    {/* <img className='foodpic' src={require(`../../img/${food.foodpic}`)} alt="foodpic" /> */}
+                        <img className='foodpic' crossOrigin="anonymous" src={`http://localhost:3000/${food.foodpic}`} alt="foodpic" />
                         <p>{food.foodname}</p>
                         <p>${food.price}</p>
                         <button onClick={(e) => {

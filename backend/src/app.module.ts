@@ -9,6 +9,8 @@ import { AdminModule } from './admin/admin.module';
 import { AuthModule } from './auth/auth.module';
 import { CaslModule } from './casl/casl.module';
 import { MulterModule } from '@nestjs/platform-express';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [PrismaModule, MenuModule,AdminModule,
@@ -17,6 +19,9 @@ import { MulterModule } from '@nestjs/platform-express';
       limit: 10,
     }),
     MulterModule.register({dest:'./uploads'}),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '../..', 'uploads'),
+    }),
     AdminModule,
     AuthModule,
     CaslModule,
