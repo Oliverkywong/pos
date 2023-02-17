@@ -8,6 +8,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { AdminModule } from './admin/admin.module';
 import { AuthModule } from './auth/auth.module';
 import { CaslModule } from './casl/casl.module';
+import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
   imports: [PrismaModule, MenuModule,AdminModule,
@@ -15,6 +16,7 @@ import { CaslModule } from './casl/casl.module';
       ttl: 60,
       limit: 10,
     }),
+    MulterModule.register({dest:'./uploads'}),
     AdminModule,
     AuthModule,
     CaslModule,

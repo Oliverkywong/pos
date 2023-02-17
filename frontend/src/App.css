@@ -11,6 +11,7 @@
   padding-top: 8rem;
   position: fixed;
   padding-left: 15px;
+  z-index: 900;
 }
 
 .siderbar > div  > img {
@@ -54,6 +55,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  padding-top: 8rem;
 }
 
 .box{

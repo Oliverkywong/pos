@@ -8,6 +8,7 @@ export class MenuService {
   constructor(private prisma: PrismaService) { }
   create(createMenuDto: CreateMenuDto) {
     createMenuDto["soldout"] = false
+    createMenuDto['price'] = parseInt(createMenuDto["price"].toString())
     return this.prisma.menu.create({ data: createMenuDto });
   }
 
