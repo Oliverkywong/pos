@@ -2,32 +2,16 @@ import axios from 'axios';
 import React from 'react'
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
+import Sidebar from './Sidebar';
 
 export default function Editpage() {
   const { handleSubmit, register } = useForm();
   const navigate = useNavigate();
   return (
     <div>
+      <Sidebar />
       <h1>add food</h1>
-      <form onSubmit={handleSubmit(async data => {
-        // let fooddata:{
-        //     foodname:string;
-        //     description:string;
-        //     price:number;
-        //     type:string;
-        //     foodpic:string;
-        // } = {
-        //   foodname: '',
-        //   description: '',
-        //   price: 0,
-        //   type: '',
-        //   foodpic: ''
-        // }
-        // fooddata.foodname = data.foodname
-        // fooddata.description = data.description
-        // fooddata.price = parseInt(data.price)
-        // fooddata.type = data.type
-        // fooddata.foodpic = data.foodpic[0]
+      <form className='editform' onSubmit={handleSubmit(async data => {
         const formData = new FormData();
         formData.append('foodname', data.foodname)
         formData.append('description', data.description)

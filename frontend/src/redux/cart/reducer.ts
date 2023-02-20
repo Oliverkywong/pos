@@ -23,14 +23,15 @@ export function cartReducer(state: CartState = initialState, action: CartAction)
         case '@@cart/REMOVE_FROM_CART':
             {
                 const foodIdx = state.foodIds.indexOf(action.payload)
-                state.foodIds.splice(foodIdx, 1)
-                const newArray = []
-                for (let i = 0; i < state.foodIds.length; i++) {
-                    newArray.push(state.foodIds[i])
-                }
+                const foodIds = state.foodIds.splice(foodIdx, 1)
+                foodIds[foodIdx] = action.payload
+                // const newArray = []
+                // for (let i = 0; i < state.foodIds.length; i++) {
+                //     newArray.push(state.foodIds[i])
+                // }
                 return {
                     ...state,
-                    foodIds: newArray
+                    foodIds: foodIds
                 }
             }
         default:
