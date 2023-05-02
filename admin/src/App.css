@@ -132,7 +132,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 260px;
+  width: 30vw;
   height: 100%;
   background: #fff;
   transition: width 0.4s;
@@ -141,13 +141,11 @@
 button{
   position: relative;
   display: flex;
-  gap: 16px;
   align-items: center;
   width: 100%;
-  height: 60px;
+  height: 8vh;
   font-family: inherit;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 4vw;
   line-height: 1;
   padding: 0 25px;
   border: 0;
@@ -162,15 +160,21 @@ button.active{
   color: #f9f9f9;
 }
 
-header button{
-  width: 64px;
-}
-
 header{
+  padding: 0;
+  width: fit-content;
   display: flex;
   align-items: center;
-  height: 72px;
+  height: 10vh;
   padding: 0 1.25rem 0 0;
+}
+
+header button img {
+  width: 10vw;
+}
+
+h1{
+  font-size: 5vw;
 }
 
 .sub-nav
@@ -202,5 +206,22 @@ button.active::before{
 .editform{
   display: flex;
   flex-direction: column;
-  padding-left: 280px;
+  font-size: 3vw;
+}
+
+.editform input{
+  width: 50vw;
+  padding: 1vw;
+  margin: 2vw;
+}
+
+.sidebarheader{
+  display: flex;
+  align-items: center;
+  height: 72px;
+  padding: 0;
+}
+
+.editcontainer{
+  padding-left: 30vw;
 }

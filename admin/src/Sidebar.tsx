@@ -1,10 +1,12 @@
 import React, { useRef, useState } from 'react'
 import { AiOutlineMenu,AiOutlineSetting,AiOutlineHome,AiOutlinePlusSquare } from "react-icons/ai";
 import { MdExpandLess,MdExpandMore } from "react-icons/md";
+import logo from './logo.svg';
+
 const menuItems = [
     { name: "Home", icon: "home" },
     {
-        name: "Settings", icon: "settings",
+        name: "Setting", icon: "settings",
         items: [
             'Display', 'Edit', 'Delete'
         ]
@@ -37,8 +39,8 @@ const Icon = ({ icon }: { icon: string }) => {
 
 const NavHeader = () => (
     <header>
-        <button type="button">
-            <Icon icon="menu" />
+        <button type="button" className='sidebarheader'>
+            <img src={logo}/>
         </button>
         <h1>Admin</h1>
     </header>
