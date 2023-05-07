@@ -9,57 +9,57 @@ export class MenuService {
   create(createMenuDto: CreateMenuDto) {
     createMenuDto["soldout"] = false
     createMenuDto['price'] = parseInt(createMenuDto["price"].toString())
-    return this.prisma.menu.create({ data: createMenuDto });
+    return this.prisma.food.create({ data: createMenuDto });
   }
 
   findAll() {
-    return this.prisma.menu.findMany({ where: { soldout: false } });
+    return this.prisma.food.findMany({ where: { soldout: false } });
   }
 
   findSoup() {
-    return this.prisma.menu.findMany({
+    return this.prisma.food.findMany({
       where: {
-        AND: [{ soldout: false }, { type: 'soup' }]
+        AND: [{ soldout: false }, { categoryId: 1 }]
       }
     });
   }
 
   findFood() {
-    return this.prisma.menu.findMany({
+    return this.prisma.food.findMany({
       where: {
-        AND: [{ soldout: false }, { type: 'food' }]
+        AND: [{ soldout: false }, { categoryId: 2 }]
       }
     });
   }
 
   findSalad() {
-    return this.prisma.menu.findMany({
+    return this.prisma.food.findMany({
       where: {
-        AND: [{ soldout: false }, { type: 'salad' }]
+        AND: [{ soldout: false }, { categoryId: 3 }]
       }
     });
   }
 
   findDrink() {
-    return this.prisma.menu.findMany({
+    return this.prisma.food.findMany({
       where: {
-        AND: [{ soldout: false }, { type: 'drink' }]
+        AND: [{ soldout: false }, { categoryId: 4 }]
       }
     });
   }
 
   findOne(id: number) {
-    return this.prisma.menu.findUnique({ where: { id: id } });
+    return this.prisma.food.findUnique({ where: { id: id } });
   }
 
   update(id: number, updateMenuDto: UpdateMenuDto) {
-    return this.prisma.menu.update({
+    return this.prisma.food.update({
       where: { id },
       data: updateMenuDto,
     });
   }
 
   remove(id: number) {
-    return this.prisma.menu.delete({ where: { id } });
+    return this.prisma.food.delete({ where: { id } });
   }
 }

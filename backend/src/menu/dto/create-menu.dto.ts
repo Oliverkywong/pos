@@ -4,5 +4,5 @@ export class CreateMenuDto {
     price: number ;
     foodpic: string ;
     soldout: boolean ;
-    type: string ;
+    categoryId: number ;
 }

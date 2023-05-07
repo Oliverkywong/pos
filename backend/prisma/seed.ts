@@ -5,28 +5,47 @@ import { hashPassword } from "../util/hash"
 const prisma = new PrismaClient();
 
 async function main() {
-  await prisma.menu.deleteMany({})
-  const types = ['soup', 'food', 'salad', 'drink']
+  await prisma.foodCategory.deleteMany({})
+  const name = ['soup', 'food', 'salad', 'drink']
+  for (let i = 0; i < 4; i++) {
+    await prisma.foodCategory.createMany({
+      data: [
+        { type: name[i] }
+      ]
+    })
+  }
+
+  await prisma.role.deleteMany({})
+  const role = ['admin', 'user', 'staff', 'manager']
+  for (let i = 0; i < 4; i++) {
+    await prisma.role.createMany({
+      data: [
+        { role: role[i] }
+      ]
+    })
+  }
+
+  await prisma.food.deleteMany({})
   for (let i = 0; i < 20; i++) {
-    await prisma.menu.create({
+    await prisma.food.create({
       data: {
-        foodname: i.toString(),
-        description: i.toString(),
+        foodname: "name_"+i.toString(),
+        description: "description_"+i.toString(),
         foodpic: `download${Math.floor(Math.random() * 6)}.jpeg`,
         price: Math.floor(Math.random() * 50) + 1,
         soldout: false,
-        type: types[Math.floor(Math.random() * 4)]
+        categoryId: Math.floor(Math.random() * 4) + 1
       },
     });
   }
 
   const a = await hashPassword('admin')
-  await prisma.admin.deleteMany({})
-  await prisma.admin.create({
+  await prisma.user.deleteMany({})
+  await prisma.user.create({
     data: {
       name: 'admin',
       password: a,
-      role: 'boss'
+      roleId: 1
     },
   });
 }
