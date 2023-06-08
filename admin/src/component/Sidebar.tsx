@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { AiOutlineMenu,AiOutlineSetting,AiOutlineHome,AiOutlinePlusSquare } from "react-icons/ai";
 import { MdExpandLess,MdExpandMore } from "react-icons/md";
-import logo from './logo.svg';
+import logo from '../logo.svg';
+import './css/sidebar.css';
 
 const menuItems = [
     { name: "Home", icon: "home" },
@@ -38,11 +39,9 @@ const Icon = ({ icon }: { icon: string }) => {
 }
 
 const NavHeader = () => (
-    <header>
-        <button type="button" className='sidebarheader'>
-            <img src={logo}/>
-        </button>
-        <h1>Admin</h1>
+    <header className='sidebarheader'>
+        <img src={logo} alt="logo"/>
+        <p>Admin</p>
     </header>
 )
 
@@ -56,7 +55,7 @@ type ButtonProps = {
 
 const NavButton = (({ onClick, name, icon, isActive, hasSubNav }: ButtonProps) => {
     return (
-        <button type="button"
+        <button type="button" 
             onClick={() => onClick(name)} className={isActive ? 'active' : ''}>
             {icon && <Icon icon={icon} />}
             <span>{name}</span>

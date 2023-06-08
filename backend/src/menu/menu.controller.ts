@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseInterceptors, UploadedFile } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseInterceptors, UploadedFile, Res } from '@nestjs/common';
 import { MenuService } from './menu.service';
 import { CreateMenuDto } from './dto/create-menu.dto';
 import { UpdateMenuDto } from './dto/update-menu.dto';
@@ -22,6 +22,11 @@ export class MenuController {
   create(@Body() createMenuDto: CreateMenuDto, @UploadedFile() file: Express.Multer.File) {
     createMenuDto.foodpic = file.filename
     return this.menuService.create(createMenuDto);
+  }
+
+  @Get('imgname/:imgname')
+  findimg(@Param('imgname') imgname, @Res() res) {
+    return res.sendFile(imgname, { root: './uploads' });
   }
 
   @Get()

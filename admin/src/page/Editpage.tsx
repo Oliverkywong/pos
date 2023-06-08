@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
-import Sidebar from './Sidebar';
+import Sidebar from '../component/Sidebar';
 
 export default function Editpage() {
   const { handleSubmit, register } = useForm();
@@ -24,7 +24,7 @@ export default function Editpage() {
       <Sidebar />
       <div className='editcontainer'>
       <h1>add food</h1>
-      {image && <img src={image} />}
+      {image && <img src={image} alt="img"/>}
         <form className='editform' onSubmit={handleSubmit(async data => {
           const formData = new FormData();
           formData.append('foodname', data.foodname)

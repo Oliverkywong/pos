@@ -1,0 +1,26 @@
+.siderbar {
+    background-color: #282c34;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    border-right: 0.5px solid lightgray;
+    position: fixed;
+    height: 100vh;
+}
+
+.list>div>img {
+    height: calc(30px + 2vmin);
+    width: calc(30px + 2vmin);
+}
+
+.list>div>p {
+    margin: 0;
+}
+
+.logo{
+    height: calc(80px + 2vmin);
+    width: calc(80px + 2vmin);
+  }
+
+  .top{
+    border-bottom: 0.5px solid lightgray;
+  }

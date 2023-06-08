@@ -1,19 +1,28 @@
 import React from 'react';
 import './App.css';
+import './dark.css'
 import { Route, Routes } from 'react-router-dom';
-import Editpage from './Editpage';
-import Login from './Login';
-import Sidebar from './Sidebar';
-import Foodpage from './Foodpage';
+import Editpage from './page/Editpage';
+import Login from './page/Login';
+import Foodpage from './page/Foodpage';
+import Home from './page/Home';
+import { useAppSelector } from './store';
 
 function App() {
+  const dark = useAppSelector(state => state.darkMode)
+
   return (
-    <div>
+    <div className={dark ? 'app dark' : 'app'}> 
       <Routes>
-        <Route path="/"  element={<Login />} />
-        <Route path="edit" element={<Editpage />} />
-        <Route path="bar" element={<Sidebar />} />
-        <Route path="food" element={<Foodpage />} />
+        <Route path="/">
+          <Route index element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="foods">
+            <Route index element={<Foodpage />} />
+            <Route path=":foodid" element={<Editpage />} />
+            <Route path="new" element={<Editpage />} />
+          </Route>
+        </Route>
       </Routes>
     </div>
   );

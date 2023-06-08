@@ -21,6 +21,7 @@ import { join } from 'path';
     MulterModule.register({dest:'./uploads'}),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '../..', 'uploads'),
+      exclude: ['/api/(.*)'],
     }),
     AdminModule,
     AuthModule,

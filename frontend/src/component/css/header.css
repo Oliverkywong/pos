@@ -1,0 +1,82 @@
+header{
+    position: fixed;
+    width: 100%;
+}
+
+.nav {
+    display: flex;
+    padding: 15px 15px;
+    min-height: fit-content;
+    align-items: center;
+    justify-content: space-between;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.cart {
+    font-size: calc(20px + 2vmin);
+    color: white;
+    position: relative;
+    transform-origin: top;
+    animation: anim 1s forwards;
+}
+
+[data-content]:before {
+    content: attr(data-content);
+    position: absolute;
+    top: calc(-5px);
+    left: calc(20px);
+    width: calc(10px + 2vmin);
+    height: calc(10px + 2vmin);
+    background-color: #7EFFB2;
+    font-size: calc(7px + 2vmin);
+    color: #090909;
+    display: grid;
+    place-items: center;
+    border: 2px solid #090909;
+    border-radius: 50%;
+}
+
+.tt {
+    font-size: calc(20px + 2vmin);
+    color: white;
+    position: relative;
+    transform-origin: top;
+    animation: am 1s forwards;
+}
+
+@keyframes anim {
+    10% {
+        transform: rotate(15deg);
+    }
+
+    20% {
+        transform: rotate(-15deg);
+    }
+
+    30% {
+        transform: rotate(15deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes am {
+    10% {
+        transform: rotate(15deg);
+    }
+
+    20% {
+        transform: rotate(-15deg);
+    }
+
+    30% {
+        transform: rotate(15deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+}

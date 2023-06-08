@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import logo from './logo.svg';
+import logo from '../logo.svg';
+import './css/login.css';
 
 export default function Login() {
 
@@ -24,10 +25,10 @@ export default function Login() {
   }
 
   return (
-    <div className="App">
+    <div className="loginpage">
       <div className="loginbg"></div>
       <div className="logincard">
-        <img src={logo} className="logo" />
+        <img src={logo} alt="logo" className="logo" />
         <h1>Admin Login</h1>
         <form className='loginform' onSubmit={handleSubmit}>
           <input type="text" value={usn} onChange={e => setUsn(e.currentTarget.value)}></input>

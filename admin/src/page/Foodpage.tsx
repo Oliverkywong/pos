@@ -1,8 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom';
-import { Food } from "../model";
-import Sidebar from './Sidebar';
+import { Food } from "../../model";
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';

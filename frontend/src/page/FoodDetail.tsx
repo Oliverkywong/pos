@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import './css/fooddetail.css';
 import { NavLink } from "react-router-dom";
 import { useRouteMatch } from "react-router";
 import axios from 'axios';
