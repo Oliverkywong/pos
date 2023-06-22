@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './css/cart.css';
 import { NavLink } from 'react-router-dom'
 import { removeFromCart } from '../redux/cart/action';
 import { useAppSelector, useAppDispatch } from '../store';
+import { loadFoods } from '../redux/order/action';
 
 export default function Cart() {
 
@@ -17,6 +18,10 @@ export default function Cart() {
     return { ...accumulator, [value]: (accumulator[value] || 0) + 1 };
   }, {});
 
+  useEffect(() => {
+    dispatch(loadFoods())
+  }, [dispatch])
+  
   return (
     <div className='cartpage'>
       cart
@@ -30,9 +35,11 @@ export default function Cart() {
             <div className='cartbox' key={food.id}>
               <img className='foodpic' crossOrigin="anonymous" src={`http://localhost:3000/menu/imgname/${food.foodpic}`} alt="foodpic" />
               <p>{food.foodname}</p><p>${food.price}</p>
-              <button onClick={() => { dispatch(removeFromCart(food.id)) }}>
+              <NavLink to="/">
+                <button onClick={() => { dispatch(removeFromCart(food.id)) }}>
                 delete
               </button>
+              </NavLink>
             </div>
             <p>x {count[food.id]}</p>
           </div>

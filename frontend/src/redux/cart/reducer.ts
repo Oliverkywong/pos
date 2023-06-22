@@ -22,16 +22,21 @@ export function cartReducer(state: CartState = initialState, action: CartAction)
             }
         case '@@cart/REMOVE_FROM_CART':
             {
-                const foodIdx = state.foodIds.indexOf(action.payload)
-                const foodIds = state.foodIds.splice(foodIdx, 1)
-                foodIds[foodIdx] = action.payload
-                // const newArray = []
-                // for (let i = 0; i < state.foodIds.length; i++) {
-                //     newArray.push(state.foodIds[i])
-                // }
+                // const foodIdx = state.foodIds.indexOf(action.payload)
+                // console.log("action.payload",action.payload)
+                console.log("state.foodIds",state.foodIds)
+                const foodIdx = state.foodIds.findIndex(
+                    (item) => item === action.payload
+                  );
+                //   const foodIds = state.foodIds.splice(foodIdx, 1)
+                state.foodIds.splice(foodIdx, 1)
+                // foodIds[foodIdx] = action.payload
+                console.log("state.foodIds",state.foodIds)
+                // console.log(foodIdx)
+                // console.log(foodIds)
                 return {
                     ...state,
-                    foodIds: foodIds
+                    foodIds: state.foodIds
                 }
             }
         default:

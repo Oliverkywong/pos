@@ -15,8 +15,8 @@ import { join } from 'path';
 @Module({
   imports: [PrismaModule, MenuModule,AdminModule,
     ThrottlerModule.forRoot({
-      ttl: 60,
-      limit: 10,
+      ttl: 600,
+      limit: 100,
     }),
     MulterModule.register({dest:'./uploads'}),
     ServeStaticModule.forRoot({
