@@ -11,6 +11,7 @@ import { CaslModule } from './casl/casl.module';
 import { MulterModule } from '@nestjs/platform-express';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { CartpayModule } from './cartpay/cartpay.module';
 
 @Module({
   imports: [PrismaModule, MenuModule,AdminModule,
@@ -26,6 +27,7 @@ import { join } from 'path';
     AdminModule,
     AuthModule,
     CaslModule,
+    CartpayModule,
   ],
   controllers: [AppController],
   providers: [AppService,{

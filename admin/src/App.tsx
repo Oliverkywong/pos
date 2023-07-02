@@ -7,6 +7,7 @@ import Login from './page/Login';
 import Foodpage from './page/Foodpage';
 import Home from './page/Home';
 import { useAppSelector } from './store';
+import Qrcode from './page/Qrcode';
 
 function App() {
   const dark = useAppSelector(state => state.darkMode)
@@ -17,6 +18,7 @@ function App() {
         <Route path="/">
           <Route index element={<Home />} />
           <Route path="login" element={<Login />} />
+          <Route path="qrcode" element={<Qrcode />} />
           <Route path="foods">
             <Route index element={<Foodpage />} />
             <Route path=":foodid" element={<Editpage />} />

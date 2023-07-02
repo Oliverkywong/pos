@@ -1,15 +1,10 @@
-.selectboxmain {
-    display: flex;
-    background-color: #282c34;
-}
-
 .boxcontainer {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center; 
-    padding: 80px 0 0 60px;
-
+    padding: 100px 0 0 80px;
+    background-color: #282c34;
 }
 
 .box {
