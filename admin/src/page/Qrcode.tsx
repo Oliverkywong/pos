@@ -7,7 +7,8 @@ export default function Qrcode() {
         Qrcode
         <QRCode 
         size={200}
-        value="http://192.168.68.105:3001/?orderno=1&token=1234"
+        // value="http://192.168.68.105:3001/?orderno=1&token=1234"
+        value="http://192.168.68.105:3001/"
         />
         </div>
   )

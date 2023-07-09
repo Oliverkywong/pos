@@ -1,1 +1,3 @@
-export class CreateCartpayDto {}
+export class CreateCartpayDto {
+    orderfood: number[]
+}

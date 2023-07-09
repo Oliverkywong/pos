@@ -21,6 +21,7 @@ model Food {
   foodpic     String
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
+  orderItems  OrderItem[]
 }
 
 model FoodCategory {
@@ -31,18 +32,22 @@ model FoodCategory {
 
 model Order {
   id         Int         @id @default(autoincrement())
-  food       FoodOrder[]
-  orderprice Int
+  orderNo    Int
+  foodId     Int      
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
+  orderItems OrderItem[]
 }
 
-model FoodOrder {
-  order     Order    @relation(fields: [orderId], references: [id])
-  orderId   Int @id @default(autoincrement())
-  foodId    Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model OrderItem {
+  food       Food        @relation(fields: [foodId], references: [id])
+  foodId     Int
+  order      Order       @relation(fields: [orderId], references: [id])
+  orderId    Int
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+
+  @@id([foodId, orderId])
 }
 
 model User {

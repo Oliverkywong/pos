@@ -42,7 +42,7 @@ export default function Cart() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ 'ordernum': 1, 'orderfood': cart }),
+      body: JSON.stringify({ 'orderfood': cart }),
     });
     if (res.status === 201) {
       // navigate('/')

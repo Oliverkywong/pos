@@ -14,11 +14,10 @@ export default function Menu() {
     const dispatch = useAppDispatch();
     const [animate, setAnimate] = useState(false);
 
-    const queryParameters = new URLSearchParams(window.location.search)
-    const orderno = queryParameters.get("orderno")
-    const token = queryParameters.get("token")
-    console.log(queryParameters)
-    console.log(orderno, token)
+    // const queryParameters = new URLSearchParams(window.location.search)
+    // const orderno = queryParameters.get("orderno")
+    // const token = queryParameters.get("token")
+    // console.log(orderno, token)
 
     useEffect(() => {
         console.log('cart', cartCount.length);

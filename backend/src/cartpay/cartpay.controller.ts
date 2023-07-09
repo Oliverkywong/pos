@@ -9,8 +9,7 @@ export class CartpayController {
 
   @Post()
   create(@Body() createCartpayDto: CreateCartpayDto) {
-    console.log('createCartpayDto', createCartpayDto['body']);
-    return this.cartpayService.create(createCartpayDto);
+    return this.cartpayService.create(JSON.parse(createCartpayDto['body']));
   }
 
   @Get()
