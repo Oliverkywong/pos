@@ -12,6 +12,8 @@ import { MulterModule } from '@nestjs/platform-express';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { CartpayModule } from './cartpay/cartpay.module';
+import { OrderModule } from './order/order.module';
+import { OrderauthModule } from './orderauth/orderauth.module';
 
 @Module({
   imports: [PrismaModule, MenuModule,AdminModule,
@@ -28,6 +30,8 @@ import { CartpayModule } from './cartpay/cartpay.module';
     AuthModule,
     CaslModule,
     CartpayModule,
+    OrderModule,
+    OrderauthModule,
   ],
   controllers: [AppController],
   providers: [AppService,{

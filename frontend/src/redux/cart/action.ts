@@ -31,24 +31,28 @@ export type CartAction = LoadedCartAction | AddToCartAction | RemoveFromCartActi
 export function loadCart() {
     return async (dispatch: AppDispatch) => {
         const res = await axios.get(`/cart`)
-        try {
-            dispatch(loadedCart(res.data.map((row: any) => { return row.id })))
-        } catch (error) {
-            dispatch(loadCart())
+        if (localStorage.getItem('token') !== null) {
+            try {
+                dispatch(loadedCart(res.data.map((row: any) => { return row.id })))
+            } catch (error) {
+                dispatch(loadCart())
+            }
         }
     }
 }
 
 export function fetchAddToCart(id: number) {
     return async (dispatch: AppDispatch) => {
-        addToCart(id)
-        try {
-            // const res = await axios.post(`/cart`, {
-            //     id: id
-            // })
-        } catch (error) {
-            dispatch(removeFromCart(id))
-            dispatch(loadCart())
+        if (localStorage.getItem('token') !== null) {
+            addToCart(id)
+            try {
+                // const res = await axios.post(`/cart`, {
+                //     id: id
+                // })
+            } catch (error) {
+                dispatch(removeFromCart(id))
+                dispatch(loadCart())
+            }
         }
     }
 }

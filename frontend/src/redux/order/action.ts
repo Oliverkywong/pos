@@ -21,11 +21,18 @@ type LoadedOneFoodAction = ReturnType<typeof LoadedOneFood>
 
 export type FoodAction = LoadedFoodAction | LoadedOneFoodAction
 
-export function loadFoods(parm:string='') {
+export function loadFoods(parm: string = '') {
     return async (dispatch: AppDispatch) => {
-        const res = await axios.get(`/menu${parm}`)
-        // console.log(res)
-        dispatch(LoadedFoods(res.data))
+        const res = await axios.get(`/menu${parm}`, {
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        console.log(res)
+        // axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`
+        // if (localStorage.getItem('token') !== null) {
+            dispatch(LoadedFoods(res.data))
+        // }
     }
 }
 
@@ -33,6 +40,8 @@ export function loadOneFood(id: string) {
     return async (dispatch: AppDispatch) => {
         const res = await axios.get(`/menu/${id}`)
         console.log(res)
-        dispatch(LoadedOneFood(res.data))
+        if (localStorage.getItem('token') !== null) {
+            dispatch(LoadedOneFood(res.data))
+        }
     }
 }
